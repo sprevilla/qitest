@@ -1,0 +1,20 @@
+<configuration scan="true" scanPeriod="30 seconds">
+  <!-- 'Q2' Appender -->
+  <appender name="Q2" class="org.jpos.logging.logback.LogbackAppender" />
+
+  <root level="WARN">
+    <appender-ref ref="Q2" />
+  </root>
+
+   <!--
+   <logger name="org.hibernate.type" level="DEBUG"/>
+   <logger name="org.hibernate.SQL" level="DEBUG"/>
+   -->
+  <logger name="org.hibernate.orm.deprecation" level="ERROR"/>
+  <logger name="org.hibernate.engine.internal" level="ERROR"/>
+  <logger name="org.hibernate.cache.ehcache.AbstractEhcacheRegionFactory" level="ERROR" />
+  <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+    <resetJUL>true</resetJUL>
+  </contextListener>
+</configuration>
+

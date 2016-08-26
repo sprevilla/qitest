@@ -1,0 +1,57 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven'
+apply plugin: 'war'
+apply from: 'libraries.gradle'
+
+group = 'org.jpos.qi'
+version = '2.0.7'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+configurations {
+   all*.exclude group: "com.vaadin", module: "vaadin-client-compiler"
+   all*.exclude group: "com.vaadin", module: "vaadin-client-compiled"
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'http://jpos.org/maven' }
+    maven { url 'http://download.oracle.com/maven' }
+    maven { url 'http://maven.vaadin.com/vaadin-addons' }
+    mavenLocal()
+}
+
+dependencies {
+    compile libraries.jposee_qi_core
+    compile libraries.jposee_qi_sysconfig
+    compile libraries.jposee_qi_eeuser
+    providedCompile libraries.jpos
+    providedCompile libraries.jposee_db_mysql
+    providedCompile libraries.jposee_db_postgres
+    providedCompile libraries.jposee_visitor
+    providedCompile libraries.jposee_jetty
+    providedCompile libraries.jposee_logback
+    providedCompile libraries.jposee_syslog
+    providedCompile libraries.jposee_sysconfig
+    providedCompile 'com.vaadin.external.slf4j:vaadin-slf4j-jdk14:1.6.1'
+}
+
+apply from: 'jpos-app.gradle'
+
+war {
+    exclude 'VAADIN/gwt-unitCache*'
+    exclude 'VAADIN/gwt-unitCache'
+    exclude '**/*.ico'
+    exclude '**/*.png'
+    exclude '**/*.jpg'
+    exclude '**/*.gif'
+    exclude '**/*.pdf'
+    filter(
+        org.apache.tools.ant.filters.ReplaceTokens,
+        tokens: targetConfiguration
+    )
+}
+
+installApp.dependsOn('war')
+dist.dependsOn('war')

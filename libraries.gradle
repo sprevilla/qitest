@@ -1,0 +1,23 @@
+ext {
+    jposVersion = '2.0.7-SNAPSHOT'
+    jposeeVersion = '2.2.3-SNAPSHOT'
+    vaadinVersion = '7.6.8'
+
+    libraries = [
+        junit: 'junit:junit:4.12',
+        jpos: "org.jpos:jpos:${jposVersion}",
+        jposee_core: "org.jpos.ee:jposee-core:${jposeeVersion}",
+        jposee_db_mysql: "org.jpos.ee:jposee-db-mysql:${jposeeVersion}",
+        jposee_db_postgres: "org.jpos.ee:jposee-db-postgresql:${jposeeVersion}",
+        jposee_sysconfig: "org.jpos.ee:jposee-sysconfig:${jposeeVersion}",
+        jposee_syslog: "org.jpos.ee:jposee-syslog:${jposeeVersion}",
+        jposee_visitor: "org.jpos.ee:jposee-visitor:${jposeeVersion}",
+        jposee_logback: "org.jpos.ee:jposee-logback:${jposeeVersion}",
+        jposee_jetty: "org.jpos.ee:jposee-jetty:${jposeeVersion}",
+        jposee_minigl: "org.jpos.ee:jposee-minigl:${jposeeVersion}",
+        jposee_qi_core: "org.jpos.ee:jposee-qi-core:${jposeeVersion}",
+        jposee_qi_eeuser: "org.jpos.ee:jposee-qi-eeuser:${jposeeVersion}",
+        jposee_qi_sysconfig: "org.jpos.ee:jposee-qi-sysconfig:${jposeeVersion}"
+    ]
+}
+
