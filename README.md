@@ -32,7 +32,9 @@ adduser admin -ptest -radmin -rtest -n"System Administrator"
 addsysconfig sys.REMEMBER_PASSWORD_ENABLED true
 addsysconfig sys.MAX_LOGIN_ATTEMPTS 5
 addsysconfig sys.PASSWORD_AGE 90
+shutdown
 ```
+At this point you should be able to start Q2 again without the `--cli` argument and log into [locahost:8080](http://localhost:8080) using user `admin` and password `test`. 
 
-At this point you should be able to log into [locahost:8080](http://localhost:8080) using user `admin` and password `test`.
+You can check `log/q2.log` in the `build/install/qitest` directory.
 
