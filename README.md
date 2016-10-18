@@ -32,6 +32,11 @@ adduser admin -ptest -radmin -rtest -n"System Administrator"
 addsysconfig sys.REMEMBER_PASSWORD_ENABLED true
 addsysconfig sys.MAX_LOGIN_ATTEMPTS 5
 addsysconfig sys.PASSWORD_AGE 90
+addsysconfig perm.login "Can log into the system"
+addsysconfig perm.sysadmin "Has administrator privileges"
+addsysconfig perm.users.read "Has read access to system's users information"
+addsysconfig perm.users.write "Can administer system's users"
+
 shutdown
 ```
 At this point you should be able to start Q2 again without the `--cli` argument and log into [locahost:8080](http://localhost:8080) using user `admin` and password `test`. 
